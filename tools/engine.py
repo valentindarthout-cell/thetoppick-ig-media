@@ -56,4 +56,5 @@ def kinds_for(pillar,si,n,slide):
         if si==1: return ['M']+['B']*(len(b)-1)
         if si==2: return ['h']+['W']*(len(b)-1)
         if si==0: return ['H']+['B']*(len(b)-1)
-    return [first]+['B']*(len(b)-1)
+    ks=[first]+['B']*(len(b)-1)
+    return [('W' if t.startswith('After:') else k) for t,k in zip(b,ks)]
